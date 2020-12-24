@@ -16,7 +16,7 @@ class MessageCreate(CreateView):
     fields = '__all__'
     success_url = reverse_lazy('msg_list')
 
-class MessageDelete(DeleteView):
+class MessageDelete(LoginRequiredMixin,DeleteView):
     model = Message
     success_url = reverse_lazy('msg_list')
 

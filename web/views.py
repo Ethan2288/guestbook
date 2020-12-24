@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView,DetailView,CreateView,DeleteView
 from django.urls import reverse_lazy
 from .models import Message
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class MessageList(ListView):
@@ -17,4 +18,7 @@ class MessageCreate(CreateView):
 
 class MessageDelete(DeleteView):
     model = Message
-    success_url = reverse_lazy('msg_list')     
+    success_url = reverse_lazy('msg_list')
+
+
+   
